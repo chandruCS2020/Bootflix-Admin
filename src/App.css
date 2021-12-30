@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  background-color: #1A1F39;
+  color: #fff;
+}
+
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
