@@ -37,10 +37,10 @@ return (
         <div className="sidebarMenu">
         <h3 className="sidebarTitle">Quick Menu</h3>
         <ul className="sidebarList">
-            <NavLink to="/user" className="link">
+            <NavLink to="/userlist" className="link">
             <li className="sidebarListItem">
                 <PersonOutlineIcon className="sidebarIcon" />
-                Users
+                UserList
             </li>
             </NavLink>
             <NavLink to="/movielist" className="link">

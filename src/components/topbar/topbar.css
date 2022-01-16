@@ -57,7 +57,7 @@
     -o-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.22);
     box-shadow: 0 4px 5px 0 rgb(0 0 0 / 22%);
 }
-.dropdownBar a{
+.dropdownBar div{
     font-size: 14px;
     font-weight: 400;
     text-transform: capitalize;

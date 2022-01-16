@@ -1,86 +1,40 @@
 import "./widgetSm.css";
 import { Visibility } from "@material-ui/icons";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export default function WidgetSm() {
+    const [data, setdata] = useState([]);
+    useEffect(() => {
+        const getData = async ()=>{
+            const response = await axios.get('https://apibootflix.herokuapp.com/userstop5');
+            setdata(response.data);
+        }
+        getData();
+    }, [])
+    console.log(data);
 return (
     <div className="widgetSm">
     <span className="widgetSmTitle">New Join Members</span>
     <ul className="widgetSmList">
-        <li className="widgetSmListItem">
-        <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-        />
-        <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-        </div>
-        <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-        </button>
-        </li>
-        <li className="widgetSmListItem">
-        <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-        />
-        <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-        </div>
-        <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-        </button>
-        </li>
-        <li className="widgetSmListItem">
-        <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-        />
-        <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-        </div>
-        <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-        </button>
-        </li>
-        <li className="widgetSmListItem">
-        <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-        />
-        <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-        </div>
-        <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-        </button>
-        </li>
-        <li className="widgetSmListItem">
-        <img
-            src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="widgetSmImg"
-        />
-        <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
-        </div>
-        <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-        </button>
-        </li>
+        {data.map((item,index)=>(
+            <li className="widgetSmListItem" key={index}>
+                <img
+                    src={item.profilePic}
+                    alt=""
+                    className="widgetSmImg"
+                />
+                <div className="widgetSmUser">
+                    <span className="widgetSmUsername">{item.firstName} {item.lastName}</span>
+                </div>
+                <NavLink to={'user/'+item._id} className="widgetSmButton">
+                    <Visibility className="widgetSmIcon" />
+                    Display
+                </NavLink>
+            </li>
+        ))}
+        
     </ul>
     </div>
 );
