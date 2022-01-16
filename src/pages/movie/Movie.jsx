@@ -82,7 +82,7 @@ export default function Movie() {
             };
             sendVideo();
     }
-    console.log(percentage)
+    console.log("hh"+percentage)
     // console.log(movieId)
     // console.log(video)
     return (
