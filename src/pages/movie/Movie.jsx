@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
+import {genres} from '../../dummyData'
 
 function CircularProgressWithLabel(props) {
     return (
@@ -80,6 +81,7 @@ export default function Movie() {
     }, [])
     const [movie, setMovie] = useState(null);
     const [images, setimages] = useState([]);
+    const [genre, setgenre] = useState([]);
     const [trailer, settrailer] = useState(null);
     const [movieId, setmovieId] = useState('');
     const [video, setvideo] = useState('');
@@ -95,22 +97,47 @@ export default function Movie() {
     const [movieErrorMessage, setmovieErrorMessage] = useState('');
     const [movieResponseMessage, setmovieResponseMessage] = useState('SuccessFully sent to server');
     const [movieResponse, setmovieResponse] = useState(false);
+    const [imageErrorMessage, setimageErrorMessage] = useState('');
+    const [imageresponseMessage, setimageresponseMessage] = useState('SuccessFully sent to server');
+    const [imageResponse, setimageResponse] = useState(false);
     const handleChange = (e) => {
         const value = e.target.value;
         setMovie({ ...movie, [e.target.name]: value });
     };
+    const handleGenre = (e) =>{
+        if(e.target.checked){
+            setgenre([ ...genre,e.target.value]);
+        }else{
+            let index = genre.indexOf(e.target.value);
+            genre.splice(index,1);
+        }   
+    }
+    
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setimages({ ...images, [e.target.name]: file });
     };
+    
+    console.log(movie)
+    
     const handleMovieDetailsUpload = (e)=>{
         e.preventDefault();
+        var formData = {};
+        for (const [key, value] of Object.entries(movie)) {
+            formData[key]=value;
+        }
+        formData["genre"]=genre;
+        console.log(formData)
+        
         const sendData = async ()=>{
             try{
                 const res = await axios.post("https://apibootflix.herokuapp.com/movie",
-                                                movie,
+                                                formData,
                                                 {
-                                                    withCredentials:true
+                                                    withCredentials:true,
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                    },
                                                 }
                                             );
                 setmovieId(res.data._id);
@@ -169,7 +196,9 @@ export default function Movie() {
         console.log(formData);
         const sendVideo = async ()=>{
             try{
-                const res = await axios.post("https://apibootflix.herokuapp.com/upload/movie/"+movieId, 
+                setImagebuttonClick(false);
+                setimageResponse(true);
+                const res = await axios.post("https://apibootflix.herokuapp.com/upload-movie-images/"+movieId, 
                                                 formData,
                                                 {
                                                     withCredentials:true,
@@ -178,12 +207,21 @@ export default function Movie() {
                                                     },
                                                     onUploadProgress: function(progressEvent) {
                                                         var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-                                                        setImagepercentage(percentCompleted)
+                                                        setImagepercentage(percentCompleted);
+                                                        setimageResponse(true);
                                                     }
                                                 }
                                             );
                 console.log(res);
+                if(res.status===200){
+                    setimageResponse(true);
+                    setimageresponseMessage('Upload successfully');
+                }
             }catch(err){
+                setImagebuttonClick(true);
+                setimageResponse(true);
+                setimageErrorMessage('Failed to Upload');
+                setImagepercentage(0);
                 console.log(err.message);
             }
         };
@@ -227,6 +265,8 @@ export default function Movie() {
         sendVideo();
     };
     console.log(trailerResponse)
+    // console.log(genreArray)
+    
     return (
         <div className='newMovie'>
             <div className="newMovieTitle">New Movie</div>
@@ -261,16 +301,7 @@ export default function Movie() {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="newMovieItems">
-                    <label htmlFor="movieGenre">Genre</label>
-                    <input 
-                        type="text" 
-                        name="genre" 
-                        id="movieGenre" 
-                        placeholder='Genre'  
-                        onChange={handleChange}
-                    />
-                </div>
+                
                 <div className="newMovieItems">
                     <label htmlFor="movieDuration">Durations</label>
                     <input 
@@ -303,15 +334,26 @@ export default function Movie() {
                 </div>
                 <div className="newMovieItems">
                     <label htmlFor="moviePlan">Plan</label>
-                    <input 
-                        type="text" 
-                        name="plan" 
-                        id="moviePlan" 
-                        placeholder='Plan'  
-                        onChange={handleChange}
-                    />
+                    
+                    <select name="plan" id="plan" onChange={handleChange}>
+                        <option ></option>
+                        <option value="Free">Free</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Preminum">Premium</option>
+                    </select>
                 </div>
-                
+            </div>
+            <div className="genreBox1">
+            <label className='genre'>Genre</label>
+            <div className="genreBox">
+                {genres.map((item,index)=>(
+                    <div className="genreItem" key={index}>
+                        <label>
+                            <input type="checkbox" name={item.name} id={item.id} value={item.value} onChange={handleGenre}/>  {item.name}
+                        </label>
+                    </div>
+                ))}
+            </div>
             </div>
             <button 
                 className="uploadDetails" 
@@ -379,7 +421,7 @@ export default function Movie() {
                             <label htmlFor="newMovieImage">Image</label>
                             <input 
                                 type="file" 
-                                name="MovieImage" 
+                                name="image" 
                                 id="newMovieImage" 
                                 onChange={handleImageChange}
                             />
@@ -388,7 +430,7 @@ export default function Movie() {
                             <label htmlFor="newMovieTitleImage">Title Image</label>
                             <input 
                                 type="file" 
-                                name="MovieTitleImage" 
+                                name="titleImage" 
                                 id="newMovieTitleImage"  
                                 onChange={handleImageChange}
                             />
@@ -397,12 +439,12 @@ export default function Movie() {
                             <label htmlFor="newMovieThumbnailImage">Thumnail Image</label>
                             <input 
                                 type="file" 
-                                name="MovieThumbnailImage" 
+                                name="thumnailImage" 
                                 id="newMovieThumbnailImage" 
                                 onChange={handleImageChange} 
                             />
                         </div>
-                        <div className="newMovieBlobItem">
+                        {/* <div className="newMovieBlobItem">
                             <label htmlFor="newMovieSubtitle">Subtitle</label>
                             <input 
                                 type="file" 
@@ -410,25 +452,18 @@ export default function Movie() {
                                 id="newMovieSubtitle" 
                                 onChange={handleImageChange} 
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 {
                     ImagebuttonClick ? 
-                    <button 
-                        className="uploadDetails" 
-                        onClick={handleImageUpload}
-                    >
-                        Upload
-                    </button> : 
-                    Imagepercentage===100 ? 
-                    <CheckCircleOutlineIcon 
-                        sx={{height:'2em',width:'2em'}} 
-                        color='success'
-                    /> : 
+                    <ErrorButton function={handleImageUpload} error={imageResponse} message={imageErrorMessage}/> : 
+                    Imagepercentage===100 && imageResponse ? 
+                    <SuccessMessage message={imageresponseMessage}/>: 
+                    trailerResponse &&
                     <CircularProgressWithLabel 
                         value={Imagepercentage} 
-                    />
+                    /> 
                 }
                 </>
             }

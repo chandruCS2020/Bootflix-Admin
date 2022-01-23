@@ -1,0 +1,47 @@
+.userDetails{
+    background-color:#2A3655 ;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.userDetails_Box{
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background-color:  #1A1F39;
+    padding: 20px;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+.userDetailsProfile img{
+    width:150px;
+    height: 150px;
+    background-color: blue;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.userDetailsBody{
+    margin-top: 20px;
+}
+.userDetailsItem{
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.userDetailsItemLabel{
+    width: 200px;
+    position: relative;
+    margin-right: 20px;
+    text-transform: uppercase;
+}
+.userDetailsItemLabel::after{
+    content: ':';
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.3rem;
+}

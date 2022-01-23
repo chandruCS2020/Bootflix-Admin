@@ -1,0 +1,31 @@
+.movieEdit{
+    flex:4 ;
+    padding: 20px;
+}
+textarea{
+    padding: 10px;
+    outline: 0;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: 2px solid transparent;
+}
+.Delbtn{
+    padding: 10px 20px;
+    background-color: red;
+    border-radius: 3px;
+    color: #fff;
+    margin: 10px 0;
+    width: 70px;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.imagePreview,.Preview{
+    padding: 20px;
+}
+.imagePreview img{
+    width: 500px;
+    height: 400px;
+    object-fit: contain;
+    margin: 20px 0;
+}

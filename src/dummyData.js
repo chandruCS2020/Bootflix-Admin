@@ -1,251 +1,94 @@
-export const userData = [
+export const plan =[
     {
-    name: "Jan",
-    "Active User": 4000,
+        id:1,
+        value:'',
+        label:'',
+        selected:false
     },
     {
-    name: "Feb",
-    "Active User": 3000,
+        id:2,
+        value:'Free',
+        label:'Free',
+        selected:false
     },
     {
-    name: "Mar",
-    "Active User": 5000,
+        id:3,
+        value:'Standard',
+        label:'Standard',
+        selected:false
     },
     {
-    name: "Apr",
-    "Active User": 4000,
+        id:4,
+        value:'Preminum',
+        label:'Premium',
+        selected:false
+    }
+]
+export const genres = [
+    {
+        id:1,
+        name:'Comedy',
+        value:'Comedy',
+        checked:false
     },
     {
-    name: "May",
-    "Active User": 3000,
+        id:2,
+        name:'Action',
+        value:'Action',
+        checked:false
     },
     {
-    name: "Jun",
-    "Active User": 2000,
+        id:3,
+        name:'Drama',
+        value:'Drama',
+        checked:false
     },
     {
-    name: "Jul",
-    "Active User": 4000,
+        id:4,
+        name:'Fantasy',
+        value:'Fantasy',
+        checked:false
     },
     {
-    name: "Agu",
-    "Active User": 3000,
+        id:5,
+        name:'Horror',
+        value:'Horror',
+        checked:false
     },
     {
-    name: "Sep",
-    "Active User": 4000,
+        id:6,
+        name:'Mystery',
+        value:'Mystery',
+        checked:false
     },
     {
-    name: "Oct",
-    "Active User": 1000,
+        id:7,
+        name:'Romance',
+        value:'Romance',
+        checked:false
     },
     {
-    name: "Nov",
-    "Active User": 4000,
+        id:8,
+        name:'Thriller',
+        value:'Thriller',
+        checked:false
     },
     {
-    name: "Dec",
-    "Active User": 3000,
-    },
-];
-
-export const productData = [
-    {
-    name: "Jan",
-    "Sales": 4000,
+        id:9,
+        name:'Western',
+        value:'Western',
+        checked:false
     },
     {
-    name: "Feb",
-    "Sales": 3000,
+        id:10,
+        name:'Crime',
+        value:'Crime',
+        checked:false
     },
     {
-    name: "Mar",
-    "Sales": 5000,
+        id:11,
+        name:'Sport',
+        value:'Sport',
+        checked:true
     },
-];
-
-export const userRows = [
-    {
-    id: 1,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 2,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 3,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 4,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 5,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 6,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 7,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 8,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 9,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-    {
-    id: 10,
-    username: "Jon Snow",
-    avatar:
-        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "jon@gmail.com",
-    status: "active",
-    transaction: "$120.00",
-    },
-];
-
-export const productRows = [
-    {
-    id: 1,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 2,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 3,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 4,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 5,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 6,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 7,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 8,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 9,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-    {
-    id: 10,
-    name: "Apple Airpods",
-    img:
-        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    stock: 123,
-    status: "active",
-    price: "$120.00",
-    },
-];
+]

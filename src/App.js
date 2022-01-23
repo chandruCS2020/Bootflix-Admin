@@ -14,6 +14,8 @@ import UserList from './pages/userList/UserList';
 import Login from "./pages/login/Login";
 import {useContext} from 'react';
 import { AuthContext } from "./context/authContext/AuthContext";
+import Movieview from "./pages/MovieView/Movieview";
+import Movieedit from "./components/Movieedit/Movieedit";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -54,6 +56,12 @@ function App() {
             </Route>
             <Route  path="/addmovies">
               <Movie />
+            </Route>
+            <Route  path="/movie/:movieId">
+              <Movieview />
+            </Route>
+            <Route  path="/movies/edit/:movieId">
+              <Movieedit />
             </Route>
         </div>
       </>
