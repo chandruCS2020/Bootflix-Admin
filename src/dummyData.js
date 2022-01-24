@@ -75,8 +75,8 @@ export const genres = [
     },
     {
         id:9,
-        name:'Western',
-        value:'Western',
+        name:'Sci Fi',
+        value:'Sci Fi',
         checked:false
     },
     {
@@ -87,8 +87,8 @@ export const genres = [
     },
     {
         id:11,
-        name:'Sport',
-        value:'Sport',
+        name:'Sports',
+        value:'Sports',
         checked:true
     },
 ]
