@@ -62,9 +62,10 @@ export default function MovieList() {
             rows={movies}
             disableSelectionOnClick
             columns={columns}
-            pageSize={20}
+            pageSize={10}
             checkboxSelection
             getRowId={r=>r._id}
+            rowsPerPageOptions={[10]}
             />
         </div>
     )
