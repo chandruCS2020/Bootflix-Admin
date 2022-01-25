@@ -7,7 +7,7 @@ const [data, setdata] = useState([]);
 useEffect(() => {
     const getData = async ()=>{
         try{
-            const response = await axios.get('http://apibootflix.herokuapp.com/paymentssTop5');
+            const response = await axios.get('https://apibootflix.herokuapp.com/paymentssTop5');
             setdata(response.data);
         }catch(err){
             console.log(err.message);
