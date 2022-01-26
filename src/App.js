@@ -33,9 +33,6 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/analytics">
-              <Analytics/>
-            </Route>
             <Route  path="/payment">
               <Payment />
             </Route>
@@ -48,12 +45,7 @@ function App() {
             <Route  path="/userlist">
               <UserList />
             </Route>
-            <Route  path="/songslist">
-              <SongList />
-            </Route>
-            <Route  path="/addsongs">
-              <Songs />
-            </Route>
+            
             <Route  path="/addmovies">
               <Movie />
             </Route>

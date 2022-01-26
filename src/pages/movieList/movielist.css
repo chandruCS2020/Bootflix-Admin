@@ -39,5 +39,8 @@
     color: #fff!important;
 }
 .MuiTablePagination-root.css-rtrcn9-MuiTablePagination-root {
-    color: #fff;
+    color: #fff!important;
+}
+.MuiTablePagination-root .css-whi0l6{
+    color: #fff!important;
 }

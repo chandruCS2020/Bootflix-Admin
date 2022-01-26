@@ -20,12 +20,6 @@ return (
             Home
             </li>
             </NavLink>
-            <NavLink to='/analytics' className='link'>
-                <li className="sidebarListItem">
-                <AnalyticsIcon className="sidebarIcon" />
-                Analytics
-                </li>
-            </NavLink>
             <NavLink to='/payment' className='link'>
                 <li className="sidebarListItem">
                 <AttachMoneyIcon className="sidebarIcon" />
@@ -49,12 +43,7 @@ return (
                     MovieList
                 </li>
             </NavLink>
-            <NavLink to='/songslist' className='link'>
-                <li className="sidebarListItem">
-                <LibraryMusicIcon className="sidebarIcon" />
-                SongsList
-                </li>
-            </NavLink>
+            
         </ul>
         </div>
         <div className="sidebarMenu">
@@ -66,12 +55,7 @@ return (
                 Movies
             </li>
             </NavLink>
-            <NavLink to="/addsongs" className="link">
-                <li className="sidebarListItem">
-                    <LibraryMusicIcon className="sidebarIcon" />
-                    Songs
-                </li>
-            </NavLink>
+            
         </ul>
         </div>
     </div>
