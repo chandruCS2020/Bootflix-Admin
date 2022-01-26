@@ -12,7 +12,7 @@ export default function Movieview() {
     useEffect(() => {
         const getData = async ()=>{
             try{
-                const response = await axios.get('https://apibootflix.herokuapp.com/movie/'+movieId);
+                const response = await axios.get('https://apibootflix.herokuapp.com/movie/'+movieId,{withCredentials:true});
                 setmovie(response.data);
                 setloading(true);
             }catch(err){

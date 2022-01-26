@@ -14,7 +14,7 @@ getMoviesSuccess,
 export const getMovies = async (dispatch) => {
 dispatch(getMoviesStart());
 try {
-    const response = await axios.get('https://apibootflix.herokuapp.com/list-movies');
+    const response = await axios.get('https://apibootflix.herokuapp.com/list-movies',{withCredentials:true});
     dispatch(getMoviesSuccess(response.data.result));
 } catch (err) {
     dispatch(getMoviesFailure());
@@ -25,7 +25,7 @@ try {
 export const updateMovie = async (movie,id , dispatch) => {
 dispatch(createMovieStart());
 try {
-    const res = await axios.put('https://apibootflix.herokuapp.com/movie/'+id,movie);
+    const res = await axios.put('https://apibootflix.herokuapp.com/movie/'+id,movie,{withCredentials:true});
     dispatch(createMovieSuccess());
 } catch (err) {
     dispatch(createMovieFailure());
@@ -36,7 +36,7 @@ try {
 export const deleteMovie = async (id, dispatch) => {
 dispatch(deleteMovieStart());
 try {
-    await axios.delete('https://apibootflix.herokuapp.com/movie/'+id);
+    await axios.delete('https://apibootflix.herokuapp.com/movie/'+id,{withCredentials:true});
     dispatch(deleteMovieSuccess(id));
 } catch (err) {
     dispatch(deleteMovieFailure());

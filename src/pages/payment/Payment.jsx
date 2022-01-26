@@ -10,7 +10,7 @@ export default function Payment() {
     useEffect(() => {
         const getData = async ()=>{
             try{
-                const response = await axios.get('https://apibootflix.herokuapp.com/getAllPayments');
+                const response = await axios.get('https://apibootflix.herokuapp.com/getAllPayments',{withCredentials:true});
                 setData(response.data)
             }catch(err){
                 console.log(err.message);

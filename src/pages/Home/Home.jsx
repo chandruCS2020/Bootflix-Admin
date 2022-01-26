@@ -27,7 +27,7 @@ export default function Home() {
     useEffect(() => {
         const getData = async ()=>{
             try{
-                const response = await axios.get('https://apibootflix.herokuapp.com/getMonthlyusers');
+                const response = await axios.get('https://apibootflix.herokuapp.com/getMonthlyusers',{withCredentials:true});
                 response.data.map(item=> setstats(prev=>[...prev,{name:MONTH[item.month-1] , "New User" : item.count}]))
             }catch(err){
                 console.log(err.message)

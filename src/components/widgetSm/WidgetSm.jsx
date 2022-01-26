@@ -8,7 +8,7 @@ export default function WidgetSm() {
     const [data, setdata] = useState([]);
     useEffect(() => {
         const getData = async ()=>{
-            const response = await axios.get('https://apibootflix.herokuapp.com/userstop5');
+            const response = await axios.get('https://apibootflix.herokuapp.com/userstop5',{withCredentials:true});
             setdata(response.data);
         }
         getData();

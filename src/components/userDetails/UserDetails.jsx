@@ -10,7 +10,7 @@ export default function UserDetails(id) {
     useEffect(() => {
         const getData = async ()=>{
             try{
-                const response = await axios.get('https://apibootflix.herokuapp.com/users/'+id.userId);
+                const response = await axios.get('https://apibootflix.herokuapp.com/users/'+id.userId,{withCredentials:true});
                 setuser(response.data);
                 setloading(true);
             }catch(err){

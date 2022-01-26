@@ -8,7 +8,7 @@ export default function FeatureInfo() {
     useEffect(() => {
         async function getData(){
             try{
-                const res= await axios.get('https://apibootflix.herokuapp.com/userDivisons');
+                const res= await axios.get('https://apibootflix.herokuapp.com/userDivisons',{withCredentials:true});
                 setdata(res.data);
             }catch(err){
                 console.log(err.message);

@@ -31,7 +31,7 @@ export default function Movieedit() {
     useEffect(() => {
         const getData = async ()=>{
             try{
-                const response = await axios.get('https://apibootflix.herokuapp.com/movie/'+movieId);
+                const response = await axios.get('https://apibootflix.herokuapp.com/movie/'+movieId,{withCredentials:true});
                 setmovie(response.data);
                 setloading(true);
                 
@@ -52,7 +52,7 @@ export default function Movieedit() {
         console.log(formData);
         const data = async ()=>{
             try{
-                const res = await axios.put('https://apibootflix.herokuapp.com/movie/'+movieId,formData);
+                const res = await axios.put('https://apibootflix.herokuapp.com/movie/'+movieId,formData,{withCredentials:true});
                 console.log(res.data);
             }catch(err){
                 console.log(err);
@@ -63,7 +63,7 @@ export default function Movieedit() {
     const deleteMovie = ()=>{
         const deleteVideo = async ()=>{
             try{
-                const res = await axios.delete('https://apibootflix.herokuapp.com/movieVideo/'+movieId);
+                const res = await axios.delete('https://apibootflix.herokuapp.com/movieVideo/'+movieId,{withCredentials:true});
                 console.log(res.data);
                 if(res.status===200){
                     window.location.reload();
@@ -77,7 +77,7 @@ export default function Movieedit() {
     const deleteTrailer = ()=>{
         const deleteVideo = async ()=>{
             try{
-                const res = await axios.delete('https://apibootflix.herokuapp.com/movieTrailer/'+movieId);
+                const res = await axios.delete('https://apibootflix.herokuapp.com/movieTrailer/'+movieId,{withCredentials:true});
                 console.log(res.data);
                 if(res.status===200){
                     window.location.reload();

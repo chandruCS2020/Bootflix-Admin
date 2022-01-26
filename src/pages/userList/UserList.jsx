@@ -12,7 +12,7 @@ export default function UserList() {
     useEffect(() => {
         const getData = async ()=>{
             try{
-                const response = await axios.get('https://apibootflix.herokuapp.com/users');
+                const response = await axios.get('https://apibootflix.herokuapp.com/users',{withCredentials:true});
                 setData(response.data)
             }catch(err){
                 console.log(err.message);
