@@ -14,7 +14,7 @@ export const login = async (user, dispatch) => {
 export const me = async (dispatch) => {
     dispatch(loginStart());
     try {
-        const res = await axios.post("https://apibootflix.herokuapp.com/me",{withCredentials:true});
+        const res = await axios.get("https://apibootflix.herokuapp.com/me",{withCredentials:true});
         dispatch(loginSuccess(res.data));
         // console.log(res.data)
     } catch (err) {
