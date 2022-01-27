@@ -12,13 +12,17 @@ import Songs from "./pages/songs/Songs";
 import Movie from "./pages/movie/Movie";
 import UserList from './pages/userList/UserList';
 import Login from "./pages/login/Login";
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import { AuthContext } from "./context/authContext/AuthContext";
 import Movieview from "./pages/MovieView/Movieview";
 import Movieedit from "./components/Movieedit/Movieedit";
+import { me } from "./context/authContext/ApiCalls";
 
 function App() {
-  const { user } = useContext(AuthContext);
+  const { user,dispatch } = useContext(AuthContext);
+  useEffect(() => {
+      me(dispatch);
+  }, [dispatch]);
   
   return (
     <Router>
